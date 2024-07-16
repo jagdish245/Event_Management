@@ -1,24 +1,61 @@
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import Home from './Components/HomeComponent/Home';
+import Navbar from './Components/Navbar';
+import Footer from './Components/Footer';
+import Contact from './Components/ContactUs/Contact';
+import HeartOfInclusion from './Components/Gallery/HeartOfInclusion';
+import VibrantVoice from './Components/Gallery/VibrantVoice';
+import Signup from './Components/Authentication/Signup';
+import PasswordReset from './Components/Authentication/PasswordReset';
+import AboutPage from './Components/AboutComponent/AboutPage';
+import AdminHome from './Admin/Components/Home'
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <BrowserRouter>
+      <Routes>
+      <Route path='/' element={<>
+            <Navbar />
+            <Home />
+            <Footer />
+          </>} />
+          <Route path='/contact' element={<>
+            <Navbar />
+            <Contact />
+            <Footer />
+          </>} />
+          <Route path='/heartofinclusion' element={<>
+            <Navbar />
+            <HeartOfInclusion />
+            <Footer />
+          </>} />
+          <Route path='/vibrantvoice' element={<>
+            <Navbar />
+            <VibrantVoice />
+            <Footer />
+          </>} />
+          <Route path='/signup' element={<>
+            <Navbar />
+            <Signup />
+            <Footer />
+          </>} />
+          <Route path='/passwordreset' element={<>
+            <Navbar />
+            <PasswordReset />
+            <Footer />
+          </>} />
+          <Route path='/aboutpage' element={<>
+            <Navbar />
+            <AboutPage />
+            <Footer />
+          </>} />
+          <Route path='/admin/*' element={<AdminHome />} />
+      </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 

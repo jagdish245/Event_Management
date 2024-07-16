@@ -1,0 +1,83 @@
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7); /* Darker overlay for better contrast */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's above other content */
+  
+}
+
+/* Modal Content */
+.modal-overlay .modal-content {
+  background: hsl(30deg 20% 98.04%);
+  padding: 30px;
+  border-radius: 10px;
+  position: relative;
+  width: 450px;
+  max-width: 90%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  z-index: 1001; /* Ensure it's above the overlay */
+  text-align: center;
+}
+
+/* Close Button */
+.modal-overlay .modal-content .close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333; /* Match the modal content */
+}
+
+/* Form Styles */
+.modal-overlay .modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Space between form elements */
+  
+}
+
+.modal-overlay .modal-content form label {
+  display: flex;
+  flex-direction: column;
+  text-align: left; /* Align labels to the left */
+  font-size: 14px;
+  color: #666;
+  margin-top: 10px;
+  margin-bottom: -10px;
+}
+
+.modal-overlay .modal-content form input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.modal-overlay .modal-content form a {
+  text-decoration: none;
+}
+
+.modal-overlay .modal-content form button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #4caf50c9;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.modal-overlay .modal-content form button:hover {
+  background-color: #449d48eb;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

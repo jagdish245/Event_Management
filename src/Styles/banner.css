@@ -1,0 +1,16 @@
+.custom-banner {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.custom-banner .carousel-inner {
+  width: 100%;
+  max-width: 1350px;
+
+}
+
+.custom-banner .carousel-item img {
+  width: 100%;
+  border-radius: 5px; /* Optional: add rounded corners to images */
+}

@@ -1,0 +1,62 @@
+footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.footer-container {
+  width: 100%;
+  position: relative;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  background-color: hsla(42, 31.25%, 93.73%, 1);
+  /* margin: 20px 0; */
+}
+.footer-content {
+  width: 1300px;
+}
+.footer-content > hr {
+  width: 1000px;
+}
+.footer-content > ul {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+}
+.footer-content > ul > li {
+  margin-left: 10px;
+  margin-top: 70px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+.footer-content > ul > li > a {
+  text-decoration: none;
+  color: black;
+  font-family: "Josefin Sans";
+  font-weight: 300;
+  font-size: 20px;
+}
+.footer-content > hr {
+  width: 100%;
+  color: gray;
+  background-color: gray;
+}
+.footer-content > .company-name {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+.company-name {
+  font-family: "Josefin Sans";
+  font-weight: 300;
+  font-size: 20px;
+  margin-top: 30px;
+}
+@media (max-width: 480px) {
+  .footer-content > ul > li > a {
+    font-size: 16px;
+  }
+  .footer-content > .company-name {
+    font-size: 17px;
+  }
+}

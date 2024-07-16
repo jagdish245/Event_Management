@@ -1,0 +1,57 @@
+.gallery-title {
+  font-size: 44px;
+  font-family: cinzel;
+  font-weight: 500;
+  margin: 50px 0;
+  display: flex;
+  justify-content: center;
+  opacity: 0.7;
+}
+.gallery-card {
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+  width: auto;
+  margin-bottom: 150px;
+}
+.gallery-card > .glr-card {
+  display: flex;
+  flex-direction: column;
+  width: 49.7%;
+  align-items: center;
+}
+.gallery-card > .glr-card > img {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.gallery-card > .glr-card > a > button {
+  width: 160px;
+  height: 45px;
+  border: 0px;
+  background-color: #f4f1e1;
+  font-family: "Josefin Sans";
+  font-size: 17px;
+  letter-spacing: 1.5px;
+  font-weight: 300;
+  cursor: pointer;
+}
+.gallery-card > .glr-card > a {
+  background-color: aqua;
+  position: relative;
+  top: -25px;
+}
+@media (max-width: 480px) {
+  .gallery-title {
+    font-size: 25px;
+  }
+  .gallery-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .gallery-card > .glr-card{
+    width: 90%;
+  }
+}

@@ -1,0 +1,184 @@
+header {
+  background-color: hsla(42, 31.25%, 93.73%, 1);
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.container {
+  max-width: 1350px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  margin-left: 30px;
+}
+
+nav ul li a {
+  color: black;
+  text-decoration: none;
+  font-family: "Josefin Sans";
+  font-weight: 300;
+  font-size: 18px;
+}
+
+.logo {
+  margin-right: 100px;
+}
+
+.logo img {
+  height: 100px;
+  width: 130px;
+}
+
+.signup ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+}
+
+.signup ul li {
+  margin-right: 30px;
+  font-family: "Josefin Sans";
+  font-weight: 300;
+  font-size: 18px;
+  position: relative;
+}
+
+.signup ul li a {
+  text-decoration: none;
+  color: black;
+}
+
+.signup ul li .dropdown {
+  cursor: pointer;
+  display: flex;
+}
+
+.signup ul li .dropdown span {
+  display: flex;
+  align-items: center;
+}
+
+.signup ul .dropdown span {
+  cursor: pointer;
+}
+
+.signup ul .dropdown span i {
+  color: gray;
+}
+
+.signup ul li .dropdown-menu {
+  opacity: 0;
+  visibility: hidden;
+  background-color: hsla(42, 31.25%, 93.73%, 1);
+  position: absolute;
+  padding: 10px;
+  min-width: 157px;
+  top: 40px;
+  left: 0;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.3s, visibility 0.3s;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.signup ul li:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.signup ul li .dropdown-menu li {
+  margin: 5px 0;
+}
+
+.signup ul li .dropdown-menu li a {
+  display: block;
+  color: black;
+}
+
+.toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  nav.open {
+    display: flex;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+
+  .logo {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .signup ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .signup ul li {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .signup ul li .dropdown-menu {
+    top: 30px;
+  }
+
+  .toggle {
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  nav ul li a {
+    font-size: 16px;
+  }
+
+  .signup ul li {
+    font-size: 16px;
+  }
+
+  .logo img {
+    height: 80px;
+    width: 100px;
+  }
+}

@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap");
+.contact {
+  width: auto;
+  display: grid;
+  justify-content: center;
+  margin: 100px 0;
+}
+.contact > .contact-title > .heading{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-weight: 500;
+  opacity: 0.7;
+  text-align: center;
+  font-family: "cinzel", serif;
+  letter-spacing: 2px;
+}
+.contact > .contact-title > p {
+  font-weight: 400;
+  opacity: 0.5;
+  text-align: center;
+  font-size: 17px;
+  line-height: 25px;
+  font-family: "Josefin Sans";
+  letter-spacing: 1px;
+}
+.contact-container {
+  display: grid;
+  justify-content: center;
+  /* margin: 100px 50px; */
+}
+
+.contact-container > form {
+  display: grid;
+  margin: 50px 0;
+}
+.contact-container > form > label {
+  margin-bottom: 7px;
+  font-weight: 400;
+  opacity: 0.5;
+  font-size: 17px;
+  font-family: "Josefin Sans";
+  letter-spacing: 1.6px;
+  line-height: 20px;
+}
+.contact-container > form > input {
+  display: flex;
+  justify-content: center;
+  width: 500px;
+  padding: 7px ;
+  border: 2px solid #ccc;
+  margin: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border-radius: 3px;
+  font-family: "Josefin Sans";
+  font-weight: 350;
+}
+.contact-container > form > input:focus {
+  border-color: #66afe9;
+  box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+  outline: none;
+}
+.contact-container > form > button {
+  padding: 10px 15px;
+  margin: 30px 0;
+  background-color: #4caf50a6;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-weight: 400;
+  font-size: 17px;
+  font-family: "Josefin Sans";
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.contact-container > form > button:hover {
+  background-color: #4caf50c9; /* Darker green on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.contact-container > form > button:active {
+  background-color: #3e8e41; /* Even darker green on click */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.contact-container > form > textarea {
+  /* width: 70%;
+    max-width: 600px; */
+  padding: 10px 15px;
+  background-color: #ffffff;
+  border: 2px solid #ccc;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: "Georgia", serif;
+  margin-bottom: 30px;
+  height: 100px;
+  resize: vertical;
+}
+.contact-container > form > textarea:focus {
+  border-color: #66afe9;
+  box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+  outline: none;
+}
+
+@media (max-width: 480px) {
+  .contact > .contact-title > .heading{
+    font-size: 24px;
+  }
+  .contact-container > form > input{
+    width: 300px;
+  }
+}

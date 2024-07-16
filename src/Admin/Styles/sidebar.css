@@ -1,0 +1,33 @@
+.admin-sidebar {
+  width: 200px;
+  background-color: #f8f9fa;
+  padding: 10px;
+  height: calc(100vh - 50px); /* Adjusting for the navbar height */
+  position: fixed;
+  top: 50px; /* Height of the navbar */
+  left: 0;
+}
+
+.admin-sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+.admin-sidebar ul li i {
+  margin: 0 10px;
+}
+.admin-sidebar li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.admin-sidebar li:hover {
+  background-color: #e9ecef;
+}
+.admin-sidebar p {
+  text-align: center;
+  opacity: 0.6;
+}
+.admin-sidebar ul li a{
+    text-decoration: none;
+    color: black;
+}

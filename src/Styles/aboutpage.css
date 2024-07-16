@@ -1,0 +1,93 @@
+.aboutpage-container {
+  width: 100%;
+  margin: 100px 0;
+  display: flex;
+  justify-content: center;
+}
+.aboutpage-container .aboutpage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+}
+.aboutpage-container .aboutpage h1 {
+  font-size: 37px;
+  font-family: "cinzel", serif;
+  font-weight: 200;
+  letter-spacing: 2px;
+  margin: 30px 0;
+}
+.aboutpage-container .aboutpage p {
+  font-family: "Josefin Sans";
+  font-weight: 300;
+  font-size: 19px;
+  letter-spacing: 0.5px;
+  text-align: justify;
+}
+
+.about1-container {
+  width: auto;
+  display: flex;
+  margin: 50px 0;
+  background-color: hsl(30deg 20% 98.04%);
+}
+.about1-container img {
+  width: 42%;
+}
+.about1-container > .about-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 100px;
+}
+.about1-container > .about-text > h1 {
+  font-size: 37px;
+  font-family: "cinzel", serif;
+  font-weight: 200;
+  letter-spacing: 2px;
+  margin: 30px 0;
+}
+.about1-container > .about-text > p {
+  font-family: "Josefin Sans";
+  font-weight: 300;
+  font-size: 19px;
+  letter-spacing: 0.5px;
+}
+.about1-container > .about-text > a {
+  text-decoration: none;
+  border: 1px solid black;
+  width: 120px;
+  text-align: center;
+  padding: 8px;
+  font-size: 18px;
+  font-family: "Josefin Sans";
+  color: black;
+  font-weight: 350;
+  transition: background-color 0.3s;
+}
+.about1-container > .about-text > a:hover {
+  color: white;
+  background-color: black;
+}
+@media (max-width: 768px) {
+  .about1-container > .about-text {
+    margin: 0 20px;
+  }
+}
+@media (max-width: 480px) {
+    .about1-container{
+        align-items: center;
+    }
+  .about1-container img {
+    width: 250px;
+    height: 250px;
+  }
+  .about1-container > .about-text > h1 {
+    position: relative;
+    font-size: 24px;
+    left: 100px;
+  }
+  .about1-container > .about-text > p {
+    font-size: 16px;
+  }
+}
