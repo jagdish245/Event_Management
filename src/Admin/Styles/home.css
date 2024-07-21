@@ -8,3 +8,9 @@
   flex-grow: 1;
   margin-top: 50px; /* Height of the navbar */
 }
+.admin-content {
+  margin-left: 180px;
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #fff;
+}
