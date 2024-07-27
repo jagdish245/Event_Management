@@ -10,8 +10,10 @@ import Signup from "./Components/Authentication/Signup";
 import PasswordReset from "./Components/Authentication/PasswordReset";
 import AboutPage from "./Components/AboutComponent/AboutPage";
 import AdminHome from "./Admin/Components/Home";
-import Event from "./Admin/Components/Event";
+import EventPost from "./Admin/Components/EventPost";
 import User from "./Admin/Components/User";
+import EventDisplay from "./Components/Events/Event";
+import DetailedEvent from "./Components/Events/DetailedEvent";
 
 function App() {
   return (
@@ -59,6 +61,26 @@ function App() {
             }
           />
           <Route
+            path="/events"
+            element={
+              <>
+                <Navbar /> 
+                <EventDisplay />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/eventdetailed"
+            element={
+              <>
+                <Navbar /> 
+                <DetailedEvent />
+                <Footer />
+              </>
+            }
+          />
+          <Route
             path="/signup"
             element={
               <>
@@ -89,7 +111,7 @@ function App() {
             }
           />
           <Route path="/admin/*" element={<AdminHome />}>
-            <Route path="event" element={<Event />} />
+            <Route path="event" element={<EventPost />} />
             <Route path="userlist" element={<User />} />
           </Route>
         </Routes>

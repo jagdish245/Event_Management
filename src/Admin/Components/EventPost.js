@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../Styles/event.css";
+import "../Styles/eventpost.css";
 import axios from "axios";
 
 export default function Event() {

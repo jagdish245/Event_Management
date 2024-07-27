@@ -1,0 +1,71 @@
+.detailed-event-container {
+  max-width: 1000px;
+  margin-top: 100px;
+  margin-bottom: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.detailed-event-image {
+  width: 40%;
+  height: auto;
+  margin-right: 20px;
+  border-radius: 5px;
+}
+
+.detailed-event-details {
+  padding-left: 30px;
+  width: 60%;
+}
+
+.detailed-event-name {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.detailed-event-date {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.detailed-event-location {
+  font-size: 1.2rem;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.detailed-event-description {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.detailed-event-ticket-price {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.register-button {
+  font-weight: 500;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.register-button:hover {
+  background-color: #45a049;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
