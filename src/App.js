@@ -15,7 +15,9 @@ import User from "./Admin/Components/User";
 import EventDisplay from "./Components/Events/Event";
 import DetailedEvent from "./Components/Events/DetailedEvent";
 
+
 function App() {
+ 
   return (
     <>
       <BrowserRouter>
@@ -64,7 +66,7 @@ function App() {
             path="/events"
             element={
               <>
-                <Navbar /> 
+                <Navbar />
                 <EventDisplay />
                 <Footer />
               </>
@@ -74,7 +76,7 @@ function App() {
             path="/eventdetailed"
             element={
               <>
-                <Navbar /> 
+                <Navbar />
                 <DetailedEvent />
                 <Footer />
               </>

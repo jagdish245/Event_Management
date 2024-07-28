@@ -44,7 +44,7 @@ export default function Event() {
     }
   }
   return (
-    <div className="event-container">
+    <div className="event-containers">
       <div className="title">Create an Event</div>
       <form onSubmit={handleSubmit} enctype="multipart/form-data">
         <input

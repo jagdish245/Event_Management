@@ -1,86 +1,135 @@
-import React, { useState, useEffect } from 'react';
-import '../Styles/navbar.css';
-import logo from '../Images/Harmoni (1).png';
-import { Link } from 'react-router-dom';
-import Signup from './Authentication/Signup';
-import Login from './Authentication/Login';
-import AdminLogin from './Authentication/AdminLogin';
+import React, { useState, useEffect, useContext } from "react";
+import "../Styles/navbar.css";
+import logo from "../Images/Harmoni (1).png";
+import { Link } from "react-router-dom";
+import Signup from "./Authentication/Signup";
+import Login from "./Authentication/Login";
+import AdminLogin from "./Authentication/AdminLogin";
+import UserContext from "../context/UserContext";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
+
 
 export default function Navbar() {
-    const [isModalRegisterOpen, setisModalRegisterOpen] = useState(false);
-    const [isModalLoginOpen, setisModalLoginOpen] = useState(false);
-    const [isModalAdminOpen, setisModalAdminOpen] = useState(false);
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user, setUser } = useContext(UserContext);
+  const [isModalRegisterOpen, setisModalRegisterOpen] = useState(false);
+  const [isModalLoginOpen, setisModalLoginOpen] = useState(false);
+  const [isModalAdminOpen, setisModalAdminOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    useEffect(() => {
-        if (isModalRegisterOpen || isModalLoginOpen || isModalAdminOpen) {
-            document.body.classList.add('modal-open');
-        } else {
-            document.body.classList.remove('modal-open');
-        }
-    }, [isModalRegisterOpen, isModalLoginOpen, isModalAdminOpen]);
+  const navigate = useNavigate();
 
-    const openRegisterModal = () => {
-        setisModalRegisterOpen(true);
-    };
+  useEffect(() => {
+    if (isModalRegisterOpen || isModalLoginOpen || isModalAdminOpen) {
+      document.body.classList.add("modal-open");
+    } else {
+      document.body.classList.remove("modal-open");
+    }
+  }, [isModalRegisterOpen, isModalLoginOpen, isModalAdminOpen]);
 
-    const openLoginModal = () => {
-        setisModalLoginOpen(true);
-    };
+  const openRegisterModal = () => {
+    setisModalRegisterOpen(true);
+  };
 
-    const openAdminModal = () => {
-        setisModalAdminOpen(true);
-    };
+  const openLoginModal = () => {
+    setisModalLoginOpen(true);
+  };
 
-    const closeRegisterModal = () => {
-        setisModalRegisterOpen(false);
-    };
+  const openAdminModal = () => {
+    setisModalAdminOpen(true);
+  };
 
-    const closeLoginModal = () => {
-        setisModalLoginOpen(false);
-    };
+  const closeRegisterModal = () => {
+    setisModalRegisterOpen(false);
+  };
 
-    const closeAdminModal = () => {
-        setisModalAdminOpen(false);
-    };
+  const closeLoginModal = () => {
+    setisModalLoginOpen(false);
+  };
 
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
+  const closeAdminModal = () => {
+    setisModalAdminOpen(false);
+  };
 
-    return (
-        <header>
-            <div className="container">
-                <div className="logo">
-                    <Link to={"/"}><img src={logo} alt="Logo" /></Link>
-                </div>
-                <nav className={isMenuOpen ? 'open' : ''}>
-                    <ul>
-                        <li><Link to={"/"}>Home</Link></li>
-                        <li><Link to={"/aboutpage"}>About</Link></li>
-                        <li><Link to={"/events"}>Events</Link></li>
-                        <li><Link to={"/contact"}>Contact</Link></li>
-                    </ul>
-                </nav>
-                <div className="signup">
-                    <ul>
-                        <li className="dropdown">
-                            <span>Login <i className="fa-solid fa-caret-down"></i></span>
-                            <ul className="dropdown-menu">
-                                <li><Link onClick={openLoginModal}>User Login</Link></li>
-                                <li><Link onClick={openAdminModal}>Admin Login</Link></li>
-                            </ul>
-                        </li>
-                        <Login isOpen={isModalLoginOpen} onClose={closeLoginModal} />
-                        <AdminLogin isOpen={isModalAdminOpen} onClose={closeAdminModal} />
-                        <li><Link onClick={openRegisterModal}>Register</Link></li>
-                        <Signup isOpen={isModalRegisterOpen} onClose={closeRegisterModal} />
-                    </ul>
-                </div>
-                <div className="toggle" onClick={toggleMenu}>
-                    <i className="fa-solid fa-bars"></i>
-                </div>
-            </div>
-        </header>
-    );
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleLogout = async () => {
+    await axios.post("/api/users/logout");
+    setUser(null);
+    navigate('/');
+    toast.success('Logged out successfully', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
+  };
+
+  return (
+    <header>
+      <div className="container">
+        <div className="logo">
+          <Link to={"/"}>
+            <img src={logo} alt="Logo" />
+          </Link>
+        </div>
+        <nav className={isMenuOpen ? "open" : ""}>
+          <ul>
+            <li>
+              <Link to={"/"}>Home</Link>
+            </li>
+            <li>
+              <Link to={"/aboutpage"}>About</Link>
+            </li>
+            <li>
+              <Link to={"/events"}>Events</Link>
+            </li>
+            <li>
+              <Link to={"/contact"}>Contact</Link>
+            </li>
+          </ul>
+        </nav>
+        <div className="signup">
+          <ul>
+            {user ? (
+              <li>
+                <button className = "logout-button" onClick={handleLogout}>Logout</button>
+              </li>
+            ) : (
+              <>
+                <li className="dropdown">
+                  <span>
+                    Login <i className="fa-solid fa-caret-down"></i>
+                  </span>
+                  <ul className="dropdown-menu">
+                    <li>
+                      <Link onClick={openLoginModal}>User Login</Link>
+                    </li>
+                    <li>
+                      <Link onClick={openAdminModal}>Admin Login</Link>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <Link onClick={openRegisterModal}>Register</Link>
+                </li>
+              </>
+            )}
+            <Login isOpen={isModalLoginOpen} onClose={closeLoginModal} />
+            <AdminLogin isOpen={isModalAdminOpen} onClose={closeAdminModal} />
+            <Signup isOpen={isModalRegisterOpen} onClose={closeRegisterModal} />
+          </ul>
+        </div>
+        <div className="toggle" onClick={toggleMenu}>
+          <i className="fa-solid fa-bars"></i>
+        </div>
+      </div>
+    </header>
+  );
 }

@@ -60,10 +60,32 @@ nav ul li a {
   position: relative;
 }
 
-.signup ul li a {
+.signup ul li a,
+.signup ul li.logout-button {
   text-decoration: none;
   color: black;
+  cursor: pointer;
 }
+
+.signup ul li.logout-button{
+  padding: 8px 16px; /* Increased padding for a more substantial button */
+  border: 2px solid #ff4d4d; /* Red border to signal a warning or action */
+  border-radius: 5px; /* Rounded corners */
+  background-color: #ff4d4d; /* Red background to stand out */
+  color: white; /* White text for contrast */
+  cursor: pointer; /* Pointer cursor for clickable buttons */
+  font-family: "Josefin Sans"; /* Ensure consistent font style */
+  font-weight: 600; /* Bold font weight to emphasize the button */
+  font-size: 16px; /* Slightly smaller font size */
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Smooth transition effects */
+}
+
+.signup ul li.logout-button:hover {
+  background-color: white; /* White background on hover */
+  color: #ff4d4d; /* Red text on hover */
+  border-color: #ff4d4d; /* Keep the red border on hover */
+}
+
 
 .signup ul li .dropdown {
   cursor: pointer;
