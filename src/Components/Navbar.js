@@ -60,9 +60,9 @@ export default function Navbar() {
     await axios.post("/api/users/logout");
     setUser(null);
     navigate('/');
-    toast.success('Logged out successfully', {
+    toast.success('Logged out', {
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: false,

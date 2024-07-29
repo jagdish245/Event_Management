@@ -1,6 +1,8 @@
 import { React, useState } from "react";
 import "../../Styles/signup.css";
 import axios from "axios";
+import { toast } from 'react-toastify';
+
 
 export default function Signup({ isOpen, onClose }) {
   const [data, setData] = useState({
@@ -17,9 +19,16 @@ export default function Signup({ isOpen, onClose }) {
       if (data.password === data.password1) {
         delete data.password1;
         const response = await axios.post("/api/users/register", data);
-        alert("Registration successful");
         onClose();
-        console.log("Registration successful", response);
+        toast.success('Logged out successfully', {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+        });
       } else {
         alert("Passwords don't match");
       }
