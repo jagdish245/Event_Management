@@ -14,10 +14,10 @@ import EventPost from "./Admin/Components/EventPost";
 import User from "./Admin/Components/User";
 import EventDisplay from "./Components/Events/Event";
 import DetailedEvent from "./Components/Events/DetailedEvent";
-
+import RegisteredEvent from "./Components/Events/RegisteredEvent";
+import Ticket from "./Components/Events/Ticket";
 
 function App() {
- 
   return (
     <>
       <BrowserRouter>
@@ -28,6 +28,16 @@ function App() {
               <>
                 <Navbar />
                 <Home />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/registeredEvent"
+            element={
+              <>
+                <Navbar />
+                <RegisteredEvent />
                 <Footer />
               </>
             }
@@ -79,6 +89,14 @@ function App() {
                 <Navbar />
                 <DetailedEvent />
                 <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/ticket"
+            element={
+              <>
+                <Ticket />
               </>
             }
           />

@@ -8,8 +8,8 @@ import AdminLogin from "./Authentication/AdminLogin";
 import UserContext from "../context/UserContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { toast } from 'react-toastify';
-
+import { toast } from "react-toastify";
+import { FaUserCircle } from "react-icons/fa"; // Profile icon
 
 export default function Navbar() {
   const { user, setUser } = useContext(UserContext);
@@ -59,16 +59,16 @@ export default function Navbar() {
   const handleLogout = async () => {
     await axios.post("/api/users/logout");
     setUser(null);
-    navigate('/');
-    toast.success('Logged out', {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
-      });
+    navigate("/");
+    toast.success("Logged out", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+    });
   };
 
   return (
@@ -98,9 +98,24 @@ export default function Navbar() {
         <div className="signup">
           <ul>
             {user ? (
-              <li>
-                <button className = "logout-button" onClick={handleLogout}>Logout</button>
-              </li>
+              <div className="profile-menu">
+                <div className="profile-icon-text">
+                  <FaUserCircle className="profile-icon" />
+                  <span className="profile-text">Profile</span>
+                </div>
+                <div className="profile-menu-dropdown">
+                  <Link to={"/registeredEvent"} className="profile-menu-item">
+                    Registered Events
+                  </Link>
+                  <a
+                    href="#"
+                    onClick={handleLogout}
+                    className="profile-menu-item"
+                  >
+                    Logout
+                  </a>
+                </div>
+              </div>
             ) : (
               <>
                 <li className="dropdown">

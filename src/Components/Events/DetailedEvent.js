@@ -3,12 +3,15 @@ import "../../Styles/detailedEvent.css";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import Loading from "../Loading";
+import { toast } from "react-toastify";
 
 export default function DetailedEvent() {
   const { state } = useLocation();
   const [event, setEvent] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (state && state.eventId) {
       axios
         .get(`/api/events/getEvent/${state.eventId}`)
@@ -19,15 +22,43 @@ export default function DetailedEvent() {
           console.log(error);
         });
     }
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
+
+    return () => clearTimeout(timer);
   }, [state]);
 
-  const handleRegisterClick = () => {
-    alert(
-      "Register button clicked! Implement payment and ticket generation here."
+  const handleRegisterClick = async () => {
+    const confirmed = window.confirm(
+      "Are you sure you want to register for this event?"
     );
+
+    if (!confirmed) return;
+
+    try {
+      await axios.post("/api/events/registerForEvent", {
+        eventId: event._id,
+      });
+      toast.success("Registered!", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
+    } catch (error) {
+      console.log(error);
+      alert("Error during registration");
+    }
   };
 
   if (!event) {
+    return <Loading />;
+  }
+  if (isLoading) {
     return <Loading />;
   }
 
@@ -40,6 +71,7 @@ export default function DetailedEvent() {
       />
       <div className="detailed-event-details">
         <h1 className="detailed-event-name">{event.name}</h1>
+        <p className="detailed-event-id">Event ID: {event._id}</p>
         <p className="detailed-event-date">
           {new Date(event.date).toLocaleDateString()} at{" "}
           {new Date(event.date).toLocaleTimeString()}
