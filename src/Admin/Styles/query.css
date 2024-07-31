@@ -1,0 +1,16 @@
+.userlist > table {
+    width: 100%;
+  }
+  
+  .userlist > table > thead > tr > th {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px 0px;
+  }
+  
+  .userlist > table > tbody > tr > td {
+    text-align: center;
+    padding: 10px 0px;
+  }
+  

@@ -17,10 +17,9 @@ export default function Sidebar() {
           </Link>
         </li>
         <li>
-          <i class="fa-regular fa-bookmark"></i> Active Events
-        </li>
-        <li>
-          <i class="fas fa-th-large"></i> Post Category
+          <Link to={"/admin/query"}>
+            <i class="fas fa-th-large"></i> View Queries
+          </Link>
         </li>
       </ul>
       <hr />

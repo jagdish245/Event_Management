@@ -27,7 +27,9 @@ export default function RegisteredEvent() {
       });
   }, []);
 
-  const handleCancel = (eventId) => {
+  const handleCancel = (eventId, e) => {
+    e.stopPropagation();
+
     const confirmCancel = window.confirm(
       "Are you sure you want to cancel this registration?"
     );
@@ -59,7 +61,8 @@ export default function RegisteredEvent() {
       });
   };
 
-  const handleViewTicket = (eventId) => {
+  const handleViewTicket = (eventId, e) => {
+    e.stopPropagation();
     navigate("/ticket", { state: { eventId } });
   };
 
@@ -80,7 +83,7 @@ export default function RegisteredEvent() {
           <div
             key={eventEntry._id}
             className="registered-event-card"
-            onClick={() => handleEventClick(eventEntry.event._id)}
+            onClick={(e) => handleEventClick(eventEntry.event._id)}
           >
             <img
               src={`http://${eventEntry.event.image}`}
@@ -95,10 +98,10 @@ export default function RegisteredEvent() {
               </p>
               <p>Location: {eventEntry.event.location}</p>
               <div className="registered-event-buttons">
-                <button onClick={() => handleCancel(eventEntry.event._id)}>
+                <button onClick={(e) => handleCancel(eventEntry.event._id, e)}>
                   Cancel Registration
                 </button>
-                <button onClick={() => handleViewTicket(eventEntry.event._id)}>
+                <button onClick={(e) => handleViewTicket(eventEntry.event._id, e)}>
                   View Ticket
                 </button>
               </div>

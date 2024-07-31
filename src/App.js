@@ -16,6 +16,7 @@ import EventDisplay from "./Components/Events/Event";
 import DetailedEvent from "./Components/Events/DetailedEvent";
 import RegisteredEvent from "./Components/Events/RegisteredEvent";
 import Ticket from "./Components/Events/Ticket";
+import Query from "./Admin/Components/Query";
 
 function App() {
   return (
@@ -133,6 +134,7 @@ function App() {
           <Route path="/admin/*" element={<AdminHome />}>
             <Route path="event" element={<EventPost />} />
             <Route path="userlist" element={<User />} />
+            <Route path="query" element={<Query />} />
           </Route>
         </Routes>
       </BrowserRouter>

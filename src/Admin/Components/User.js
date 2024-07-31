@@ -4,7 +4,6 @@ import axios from "axios";
 
 export default function User() {
   const [data, setData] = useState([]);
-  let count = 1;
   useEffect(() => {
     axios
       .get("/api/users/getusers")
@@ -25,9 +24,9 @@ export default function User() {
           <th>Username</th>
           <th>Created at</th>
         </tr>
-        {data.map((user) => (
+        {data.map((user, index) => (
           <tr>
-            <td>{count}</td>
+            <td>{index + 1}</td>
             <td>{user.fullname}</td>
             <td>{user.email}</td>
             <td>{user.username}</td>
